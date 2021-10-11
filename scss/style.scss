@@ -2,4 +2,12 @@
 @import "_nullstyle";
 @import "_settings";
 @import "_form";
+@import "_calculator";
 //=====<ПОДКЛЮЧЕНИЕ СТИЛЕЙ>=================
+
+.wrapper {
+	background: -webkit-linear-gradient(45deg, #50f2c4, #26d0e3, #757aff);
+	background: linear-gradient(45deg, #50f2c4, #26d0e3, #757aff);
+	display: flex;
+	align-items: center;
+}
