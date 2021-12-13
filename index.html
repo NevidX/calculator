@@ -12,7 +12,14 @@
     <div class="wrapper">
         <div class="calc">
             <div class="calc__container">
-                <div class="calc__value-area">0</div>
+                <div class="calc__value-area">
+                    <div class="value previous-value">
+                        <form name="form-curent"><input type="text" name="textview-previous" placeholder="0"></form>
+                    </div>
+                    <div class="value current-value">
+                        <form name="form-curent"><input type="text" name="textview-curent" placeholder="0"></form>
+                    </div>
+                </div>
                 <div class="calc__tools-area">
                     <div class="calc__oper-num oper-num">
                         <div class="oper-num__operators">
@@ -22,18 +29,18 @@
                             <div class="operator">1 &frasl; x</div>
                             <div class="operator">x&sup2;</div>
                             <div class="operator">&radic;</div>
-                            <div class="operator operator__num">7</div>
-                            <div class="operator operator__num">8</div>
-                            <div class="operator operator__num">9</div>
-                            <div class="operator operator__num">4</div>
-                            <div class="operator operator__num">5</div>
-                            <div class="operator operator__num">6</div>
-                            <div class="operator operator__num">1</div>
-                            <div class="operator operator__num">2</div>
-                            <div class="operator operator__num">3</div>
-                            <div class="operator operator__num">&plusmn;</div>
-                            <div class="operator operator__num">0</div>
-                            <div class="operator operator__num">,</div>
+                            <div data-value="7" class="operator operator__num-color num">7</div>
+                            <div data-value="8" class="operator operator__num-color num">8</div>
+                            <div data-value="9" class="operator operator__num-color num">9</div>
+                            <div data-value="4" class="operator operator__num-color num">4</div>
+                            <div data-value="5" class="operator operator__num-color num">5</div>
+                            <div data-value="6" class="operator operator__num-color num">6</div>
+                            <div data-value="1" class="operator operator__num-color num">1</div>
+                            <div data-value="2" class="operator operator__num-color num">2</div>
+                            <div data-value="3" class="operator operator__num-color num">3</div>
+                            <div class="operator operator__num-color ">&plusmn;</div>
+                            <div data-value="0" class="operator operator__num-color num">0</div>
+                            <div class="operator operator__num-color ">,</div>
                         </div>
                         <div class="oper-num__aside">
                             <div class="operator">&larr;</div>
@@ -48,6 +55,7 @@
             </div>
         </div>
     </div>
+    <script src='/js/script.js'></script>
 </body>
 
 </html>
