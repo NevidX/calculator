@@ -14,21 +14,21 @@
             <div class="calc__container">
                 <div class="calc__value-area">
                     <div class="value previous-value">
-                        <form name="formPrevious"><input type="text" name="textview" placeholder="0"></form>
+                        <form name="formPrevious"><input type="text" name="textview" placeholder="0" readonly></form>
                     </div>
                     <div class="value current-value">
-                        <form name="formCurent"><input type="text" name="textview" placeholder="0"></form>
+                        <form name="formCurent"><input type="text" name="textview" placeholder="0" readonly></form>
                     </div>
                 </div>
                 <div class="calc__tools-area">
                     <div class="calc__oper-num oper-num">
                         <div class="oper-num__operators">
-                            <div class="operator">%</div>
-                            <div class="operator">CE</div>
-                            <div class="operator clearCurrentArea">C</div>
-                            <div class="operator">1 &frasl; x</div>
-                            <div class="operator">x&sup2;</div>
-                            <div class="operator">&radic;</div>
+                            <div data-value="percent" class="operator">%</div>
+                            <div data-value="clearCurrentNum" class="operator">CE</div>
+                            <div data-value="clearAll" class="operator">C</div>
+                            <div data-value="divOne" class="operator">1 &frasl; x</div>
+                            <div data-value="sqrNum" class="operator">x&sup2;</div>
+                            <div data-value="sqrRoot" class="operator">&radic;</div>
                             <div data-value="7" class="operator operator__num-color num">7</div>
                             <div data-value="8" class="operator operator__num-color num">8</div>
                             <div data-value="9" class="operator operator__num-color num">9</div>
@@ -38,17 +38,17 @@
                             <div data-value="1" class="operator operator__num-color num">1</div>
                             <div data-value="2" class="operator operator__num-color num">2</div>
                             <div data-value="3" class="operator operator__num-color num">3</div>
-                            <div class="operator operator__num-color ">&plusmn;</div>
+                            <div data-value="changeSign" class="operator operator__num-color ">&plusmn;</div>
                             <div data-value="0" class="operator operator__num-color num">0</div>
-                            <div class="operator operator__num-color ">,</div>
+                            <div data-value="floatNum" class="operator operator__num-color ">,</div>
                         </div>
                         <div class="oper-num__aside">
-                            <div class="operator">&larr;</div>
-                            <div class="operator">&divide;</div>
-                            <div class="operator">&times;</div>
-                            <div class="operator">&minus;</div>
-                            <div class="operator">+</div>
-                            <div class="operator">=</div>
+                            <div data-value="clearSymb" class="operator">&larr;</div>
+                            <div data-value="div" class="operator">&divide;</div>
+                            <div data-value="multi" class="operator">&times;</div>
+                            <div data-value="sub" class="operator">&minus;</div>
+                            <div data-value="add" class="operator">+</div>
+                            <div data-value="equals" class="operator">=</div>
                         </div>
                     </div>
                 </div>

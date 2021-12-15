@@ -1,40 +1,66 @@
 let calc = document.querySelector('.calc')
 let currentNum = document.forms.formCurent.textview
 let previousNum = document.forms.formPrevious.textview
-let clearButton = document.querySelector('.clearCurrentArea')
-
 // ===============================================================
+// <<<>>>
+CalcLoop()
+// <<<>>>
+
 getNum()
-clearCurrentArea()
-clearSymb()
+// clearCurrentArea()
+// clearSymb()
 
 // ===============================================================
 
 
-// ===============================================================
-function insert(num) {
-	currentNum.value =
-		currentNum.value + num;
+// ===========CalcLoop============================================
+
+function CalcLoop() {
+	calc.addEventListener('click', (event) => {
+		let currentAction = event.target.getAttribute('data-value');
+		switch (currentAction) {
+			case 'clearAll':
+				clearCurrentArea()
+				break;
+			case 'clearSymb':
+				clearSymb()
+				break;
+			case 'div':
+				previousArea('/')
+				break;
+		}
+	})
 }
 
+// ===========CalcLoop============================================
+
+
+
+// ===============FUNCTIONS==========================================
 function getNum() {
 	calc.addEventListener('click', (event) => {
 		if (event.target.classList.contains('num')) {
 			let curentNumValue = event.target.getAttribute('data-value');
-			insert(curentNumValue);
+			currentNum.value =
+				currentNum.value + curentNumValue;
 		}
 	})
 }
 
 function clearCurrentArea() {
-	clearButton.addEventListener('click', () => {
-		currentNum.value = '';
-		previousNum.value = '';
-	})
+	currentNum.value = '';
+	previousNum.value = '';
+}
+
+function previousArea(operator) {
+	previousNum.value = currentNum.value + ' ' + operator
 }
 
 function clearSymb() {
-
+	currentNum.value = currentNum.value.slice(0, -1)
 }
 
-// =======================================================================
+
+
+
+// ===================FUNCTIONS=========================================
