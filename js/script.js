@@ -1,15 +1,40 @@
 let calc = document.querySelector('.calc')
-let curentNum = document.forms.
+let currentNum = document.forms.formCurent.textview
+let previousNum = document.forms.formPrevious.textview
+let clearButton = document.querySelector('.clearCurrentArea')
 
-	pressNum()
+// ===============================================================
+getNum()
+clearCurrentArea()
+clearSymb()
+
+// ===============================================================
 
 
+// ===============================================================
+function insert(num) {
+	currentNum.value =
+		currentNum.value + num;
+}
 
-
-function pressNum() {
+function getNum() {
 	calc.addEventListener('click', (event) => {
 		if (event.target.classList.contains('num')) {
-			console.log(event.target.getAttribute('data-value'));
+			let curentNumValue = event.target.getAttribute('data-value');
+			insert(curentNumValue);
 		}
 	})
 }
+
+function clearCurrentArea() {
+	clearButton.addEventListener('click', () => {
+		currentNum.value = '';
+		previousNum.value = '';
+	})
+}
+
+function clearSymb() {
+
+}
+
+// =======================================================================
