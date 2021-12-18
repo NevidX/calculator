@@ -1,6 +1,8 @@
 let calc = document.querySelector('.calc')
 let currentNum = document.forms.formCurent.textview
 let previousNum = document.forms.formPrevious.textview
+currentNum.value = '0';
+previousNum.value = '0';
 // ============Operations===============
 let div = '÷'
 let multi = '×'
@@ -12,6 +14,7 @@ let add = '+'
 // STATES ==========================
 let equalsIsPressed = false
 let operatorIsChoosed = false
+let currentResult = false
 // ================================
 
 // ===============================================================
@@ -67,14 +70,17 @@ function getNum() {
 		if (targetContainsNum && equalsIsPressed == true) {
 			clearValueArea()
 			currentNum.value += event.target.getAttribute('data-value')
+			equalsIsPressed = false;
 		}
-		else if (targetContainsNum && operatorIsChoosed == false) {
-			currentNum.value += event.target.getAttribute('data-value')
+		else if (targetContainsNum && operatorIsChoosed == false && currentNum.value == '0') {
+			currentNum.value = event.target.getAttribute('data-value')
 		}
 		else if (targetContainsNum && operatorIsChoosed == true) {
-			currentNum.value = '';
+			clearCurrentArea()
 			currentNum.value += event.target.getAttribute('data-value')
 			operatorIsChoosed = false
+		} else if (targetContainsNum) {
+			currentNum.value += event.target.getAttribute('data-value')
 		}
 	})
 }
@@ -122,19 +128,36 @@ function previousArea(operator) {
 	if (equalsIsPressed == false) {
 		operatorIsChoosed = true
 		previousNum.value = currentNum.value + ' ' + operator
-	} else {
-		previousNum.value = previousNum.value + ' ' + currentNum.value + ' ' + '='
 	}
+	else if (equalsIsPressed == true && currentResult == true) {
+		clearPreviousArea()
+		previousNum.value = currentNum.value + ' ' + operator
+		currentResult = false
+		equalsIsPressed = false
+	}
+	else if (equalsIsPressed == true) {
+		previousNum.value = previousNum.value + ' ' + currentNum.value + ' ' + '='
+		currentResult = true
+	}
+
+	// else if (equalsIsPressed == true && operatorIsChoosed == false) {
+	// 	previousNum.value = '';
+	// 	previousNum.value = currentNum.value + ' ' + operator
+	// }
+
 }
 
 function clearSymb() {
-	if (operatorIsChoosed == true && equalsIsPressed == false) {
-		currentNum.value = currentNum.value.slice(0, -1)
-	} else {
+	if (equalsIsPressed == true) {
 		clearPreviousArea()
+	} else {
+		currentNum.value = currentNum.value.slice(0, -1)
 	}
-
 }
+
+// function defaultValue() {
+
+// }
 
 
 
