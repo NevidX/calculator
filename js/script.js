@@ -8,6 +8,7 @@ let div = '÷'
 let multi = '×'
 let sub = '-'
 let add = '+'
+let sqrt = '√'
 
 // ======================================
 
@@ -51,6 +52,14 @@ function CalcLoop() {
 				break;
 			case 'add':
 				previousArea(add)
+				break;
+			case 'sqrRoot':
+				previousNum.value = '√(' + currentNum.value + ')'
+				currentResult = true;
+				currentNum.value = String(Math.sqrt(currentNum.value));
+				break;
+			case 'changeSign':
+				currentNum.value = String(-currentNum.value);
 				break;
 			case 'equals':
 				getResult()
@@ -108,13 +117,14 @@ function getResult() {
 			currentNum.value = String(previousNumFloat + currentNumFloat);
 			break;
 	}
+
 }
 
 function clearValueArea() {
 	clearCurrentArea()
 	clearPreviousArea()
 	equalsIsPressed = false
-	operatorIsChoosed = false
+	operatorIsChoosed = true
 }
 
 function clearPreviousArea() {
@@ -154,12 +164,4 @@ function clearSymb() {
 		currentNum.value = currentNum.value.slice(0, -1)
 	}
 }
-
-// function defaultValue() {
-
-// }
-
-
-
-
 // ===================FUNCTIONS=========================================
